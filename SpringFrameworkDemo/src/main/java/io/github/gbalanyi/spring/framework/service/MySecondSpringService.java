@@ -6,8 +6,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class MySecondSpringService {
 
-    @Autowired
     private MyFirstSpringService myFirstSpringService;
+
+    @Autowired
+    public void setMyFirstSpringService(MyFirstSpringService myFirstSpringService) {
+        this.myFirstSpringService = myFirstSpringService;
+    }
 
     public void greeting(String name) {
         System.out.println(String.format("%s Hello %s!", myFirstSpringService.getCurrentTimestamp(), name));
