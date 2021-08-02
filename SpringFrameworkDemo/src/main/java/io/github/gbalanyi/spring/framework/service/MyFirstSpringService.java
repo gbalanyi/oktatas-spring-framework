@@ -1,17 +1,15 @@
 package io.github.gbalanyi.spring.framework.service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+
 import org.springframework.stereotype.Service;
 
 @Service
 public class MyFirstSpringService {
 
-    private String serviceName;
-
-    public MyFirstSpringService(String serviceName){
-        this.serviceName = serviceName;
-    }
-
-    public void greeting(String name) {
-        System.out.println(String.format("Hello %s! I'm %s", name, serviceName));
+    public String getCurrentTimestamp() {
+        return DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
     }
 }
