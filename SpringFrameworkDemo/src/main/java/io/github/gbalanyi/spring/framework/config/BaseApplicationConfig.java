@@ -1,6 +1,7 @@
 package io.github.gbalanyi.spring.framework.config;
 
 import java.time.Clock;
+import java.time.ZoneId;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -11,7 +12,12 @@ import org.springframework.context.annotation.Configuration;
 public class BaseApplicationConfig {
 
     @Bean
-    public Clock clock() {
-        return Clock.systemUTC();
+    public ZoneId zoneId(){
+        return ZoneId.systemDefault();
+    }
+
+    @Bean
+    public Clock clock(ZoneId zoneId) {
+        return Clock.system(zoneId);
     }
 }
