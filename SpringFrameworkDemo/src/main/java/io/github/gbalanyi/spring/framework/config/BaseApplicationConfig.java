@@ -17,7 +17,7 @@ public class BaseApplicationConfig {
     }
 
     @Bean
-    public Clock clock(ZoneId zoneId) {
-        return Clock.system(zoneId);
+    public Clock clock() {
+        return Clock.system(zoneId());
     }
 }
